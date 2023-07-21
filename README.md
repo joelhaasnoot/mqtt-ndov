@@ -31,9 +31,9 @@ Details to follow
 ### Other notes
 
 - It is possible to use Quality of Service (QoS) level 1 to make sure you don't miss messages. If this leads to performance issues, this will be disabled or restricted to registered users
-- For the non _stream topics_, the latest message is retained so you can reconnect and find a message, as long as you know the topic you're looking for. 
+- For the non _stream topics_, the latest message is retained. This is so that you can (re)connect and find a message, as long as you know the topic you're looking for. 
 - The messages expire however after about a day
-- Currently no implementation over SSL
+- Currently, there is no implementation over SSL on the staging server
 
 
 ## Admin Manual
