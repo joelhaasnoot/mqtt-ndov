@@ -1,14 +1,13 @@
-MQTT-NDOV
-=======
+# MQTT-NDOV
 
 This repo contains scripts that bridge Dutch Public Transit messages from ZMQ to MQTT and offers some nice additional features. 
 Stichting OpenGeo provides [NDOV-Loket](https://ndovloket.nl) and provides feeds over ZMQ that these scripts listen to and forward over MQTT.
 
-User Manual
-------
-A staging server is offered on [mqtt.joelhaasnoot.nl]. Use the following notes to understand how the data is structured.
+## User Manual
+A staging server is offered on [mqtt.joelhaasnoot.nl](http://mqtt.joelhaasnoot.nl). Use the following notes to understand how the data is structured.
 
-*Raw Topics*
+### Raw Topics
+
 The following topics forward the raw stream of messages
 - Train data from [NS](http://ns.nl) is fed as `ns/<original zmq topic>`, as a stream. In practice this means:
   - `ns/RIG/InfoPlusDVSInterface4` -> Stream of DVS messages ("dynamic departure message" - per service, per stops)
@@ -25,16 +24,17 @@ The following topics forward the raw stream of messages
   - `siri/GVB/EstimatedTimetableDelivery` - SIRI EstimatedTimetable for GVB (Amsterdam)
   - `siri/GVB/VehicleMonitoringDelivery` - SIRI VehicleMonitoring for GVB (Amsterdam)
 
-*Structured Topics*
+### Structured Topics
+
 Details to follow
 
-*Other notes*
+### Other notes
+
 - It is possible to use Quality of Service (QoS) level 1 to make sure you don't miss messages. If this leads to performance issues, this will be disabled or restricted to registered users
 - For the non _stream topics_, the latest message is retained so you can reconnect and find a message, as long as you know the topic you're looking for. 
 - The messages expire however after about a day
 - Currently no implementation over SSL
 
 
-Admin Manual
------
+## Admin Manual
 To run on your own server - change config.py or create local_config.py and specify the options
