@@ -1,0 +1,11 @@
+[Unit]
+Description=Feed SIRI standards data
+
+[Service]
+User=root
+WorkingDirectory=/opt/mqtt-ndov/
+ExecStart=/usr/bin/python3 feeder-ns.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

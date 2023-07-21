@@ -1,0 +1,11 @@
+[Unit]
+Description=Feed Bison Standards
+
+[Service]
+User=root
+WorkingDirectory=/opt/mqtt-ndov/
+ExecStart=/usr/bin/python3 feeder-bison.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

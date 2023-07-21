@@ -37,4 +37,4 @@ Details to follow
 
 
 ## Admin Manual
-To run on your own server - change config.py or create local_config.py and specify the options
+To run on your own server - change config.py or create local_config.py and specify the options. `scripts/` contains systemctl unit files. 
