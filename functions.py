@@ -4,6 +4,8 @@ import zmq
 import zmq.asyncio
 from asyncio_paho import AsyncioPahoClient
 from lxml import etree
+from paho.mqtt.packettypes import PacketTypes
+from paho.mqtt.properties import Properties
 
 from config import *
 
@@ -46,6 +48,8 @@ async def recv_and_process(ctx, port, name, config=None):
         msg = await sock.recv_multipart()  # waits for msg to be ready
         parsed = async_process(msg, name, config)  # We can return multiple messages
         for (topic, payload, retain) in parsed:
-            await mqtt.asyncio_publish(topic, payload, retain=retain)
+            properties = Properties(PacketTypes.PUBLISH)
+            properties.MessageExpiryInterval = 60*60*28  # retain messages for 24 + 4 hours
+            await mqtt.asyncio_publish(topic, payload, retain=retain, properties=properties if retain else None)
 
     mqtt.Disconnect()
