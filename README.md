@@ -4,7 +4,7 @@ This repo contains scripts that bridge Dutch Public Transit messages from ZMQ to
 Stichting OpenGeo provides [NDOV-Loket](https://ndovloket.nl) and provides feeds over ZMQ that these scripts listen to and forward over MQTT.
 
 ## User Manual
-A staging server is offered on [mqtt.joelhaasnoot.nl](http://mqtt.joelhaasnoot.nl). Use the following notes to understand how the data is structured.
+There is no longer a public server; see the Admin Manual below to run your own. Use the following notes to understand how the data is structured.
 
 ### Raw Topics
 
@@ -30,10 +30,10 @@ Details to follow
 
 ### Other notes
 
-- It is possible to use Quality of Service (QoS) level 1 to make sure you don't miss messages. If this leads to performance issues, this will be disabled or restricted to registered users
+- It is possible to use Quality of Service (QoS) level 1 to make sure you don't miss messages
 - For the non _stream topics_, the latest message is retained. This is so that you can (re)connect and find a message, as long as you know the topic you're looking for. 
 - The messages expire however after about a day
-- Currently, there is no implementation over SSL on the staging server
+- The scripts connect to the broker without SSL
 
 
 ## Admin Manual
